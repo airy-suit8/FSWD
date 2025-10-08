@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Form</title>
+  <link rel="stylesheet" href="/style.css">
+  <meta name="description" content="Enter two income sources to calculate your total income.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container" role="region" aria-label="Income form">
+    <h1>Enter Your Income</h1>
+
+    <% if (error) { %>
+      <p class="error" role="alert"><%= error %></p>
+    <% } %>
+
+    <form action="/calculate" method="POST" novalidate>
+      <label for="income1">Income Source 1</label>
+      <input id="income1" type="number" step="any" inputmode="decimal" name="income1" placeholder="e.g. 45000" required aria-required="true">
+
+      <label for="income2">Income Source 2</label>
+      <input id="income2" type="number" step="any" inputmode="decimal" name="income2" placeholder="e.g. 12000" required aria-required="true">
+
+      <button type="submit">Calculate Total</button>
+    </form>
+  </div>
+</body>
+</html>
